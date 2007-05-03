@@ -14,6 +14,7 @@ Source0:	http://ftp.imendio.com/pub/imendio/giggle/src/%{name}-%{version}.tar.bz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk+2-devel perl-XML-Parser gettext
 BuildRequires:	libgnomeprint-devel libglade2.0-devel gtksourceview-devel libxml2-devel
+BuildRequires:	git-core
 
 %description
 Giggle is a graphical frontend for the git directory tracker.
