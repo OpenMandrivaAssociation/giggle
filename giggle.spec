@@ -1,5 +1,5 @@
 %define	name	giggle
-%define	version	0.1
+%define	version	0.2
 %define	release	%mkrel 1
 %define	summary	Gtk frontend for git
 
