@@ -1,5 +1,5 @@
 %define	name	giggle
-%define	version	0.2
+%define	version	0.3
 %define	release	%mkrel 1
 %define	summary	Gtk frontend for git
 
@@ -15,6 +15,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk+2-devel perl-XML-Parser gettext
 BuildRequires:	libgnomeprint-devel libglade2.0-devel gtksourceview-devel libxml2-devel
 BuildRequires:	git-core
+Requires:	git-core
 
 %description
 Giggle is a graphical frontend for the git directory tracker.
