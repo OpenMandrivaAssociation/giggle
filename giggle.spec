@@ -13,7 +13,7 @@ URL:		http://developer.imendio.com/projects/giggle
 Source0:	http://ftp.imendio.com/pub/imendio/giggle/src/%{name}-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk+2-devel perl-XML-Parser gettext
-BuildRequires:	libgnomeprint-devel libglade2.0-devel gtksourceview-devel libxml2-devel
+BuildRequires:	libgnomeprint-devel libglade2.0-devel gtksourceview1-devel libxml2-devel
 BuildRequires:	git-core
 Requires:	git-core
 
