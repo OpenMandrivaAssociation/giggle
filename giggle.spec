@@ -32,7 +32,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %makeinstall_std
 %find_lang %name
 
-rm -f %buildroot%_iconsdir/hicolor/icon-theme.cache
+# remove devel files
 rm -f %buildroot%_libdir/*.la %buildroot%_libdir/libgiggle.so
 
 %post
