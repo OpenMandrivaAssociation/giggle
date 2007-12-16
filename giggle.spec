@@ -29,14 +29,19 @@ Giggle is a graphical frontend for the git directory tracker.
 
 %install
 rm -rf ${RPM_BUILD_ROOT}
-%makeinstall
+%makeinstall_std
 %find_lang %name
+
+rm -f %buildroot%_iconsdir/hicolor/icon-theme.cache
+rm -f %buildroot%_libdir/*.la %buildroot%_libdir/libgiggle.so
 
 %post
 %update_menus
+%update_icon_cache hicolor
 
 %postun
 %clean_menus
+%clean_icon_cache hicolor
 
 %clean
 rm -rf %buildroot
@@ -45,5 +50,7 @@ rm -rf %buildroot
 %defattr(-,root,root)
 %doc AUTHORS README
 %{_bindir}/*
+%{_libdir}/*.so
 %{_datadir}/applications/%name.desktop
 %{_datadir}/giggle/glade/main-window.glade
+%{_iconsdir}/hicolor/*/apps/*
