@@ -48,7 +48,7 @@ rm -rf %buildroot
 
 %files -f %name.lang
 %defattr(-,root,root)
-%doc AUTHORS README
+%doc AUTHORS README NEWS ChangeLog
 %{_bindir}/*
 %{_libdir}/*.so
 %{_datadir}/applications/%name.desktop
