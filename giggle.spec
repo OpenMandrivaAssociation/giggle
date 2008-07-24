@@ -1,6 +1,6 @@
 %define	name	giggle
 %define	version	0.4
-%define	release	%mkrel 1
+%define	release	%mkrel 3
 %define	summary	Gtk frontend for git
 
 Summary:	%summary
