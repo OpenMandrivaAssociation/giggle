@@ -19,6 +19,8 @@ BuildRequires:	libxml2-devel
 BuildRequires:	evolution-data-server-devel
 BuildRequires:	intltool
 BuildRequires:	git-core
+#gw libtool dep (GConf2?)
+BuildRequires:	dbus-glib-devel
 Requires:	git-core
 
 %description
