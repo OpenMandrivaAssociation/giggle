@@ -1,6 +1,6 @@
 %define	name	giggle
-%define	version	0.4
-%define	release	%mkrel 3
+%define	version	0.4.90
+%define	release	%mkrel 1
 %define	summary	Gtk frontend for git
 
 Summary:	%summary
@@ -10,10 +10,13 @@ Release:	%release
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://developer.imendio.com/projects/giggle
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk+2-devel
-BuildRequires:	libgnomeprint-devel libglade2.0-devel libgtksourceview-2.0-devel libxml2-devel
+BuildRequires:	libglade2.0-devel 
+BuildRequires:	libgtksourceview-2.0-devel
+BuildRequires:	libxml2-devel
+BuildRequires:	evolution-data-server-devel
 BuildRequires:	intltool
 BuildRequires:	git-core
 Requires:	git-core
@@ -25,6 +28,8 @@ Giggle is a graphical frontend for the git directory tracker.
 %setup -q 
 
 %build
+#gw it doesn't build otherwise
+%define _disable_ld_no_undefined 1
 %configure2_5x
 %make
 
@@ -34,7 +39,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %find_lang %name
 
 # remove devel files
-rm -f %buildroot%_libdir/*.la %buildroot%_libdir/libgiggle.so
+rm -f %buildroot%_libdir/*.la %buildroot%_libdir/{libgiggle.so,libgiggle-git.so}
 
 %if %mdkversion < 200900
 %post
@@ -56,6 +61,10 @@ rm -rf %buildroot
 %doc AUTHORS README NEWS ChangeLog
 %{_bindir}/*
 %{_libdir}/*.so
+%dir %_libdir/%name
+%dir %_libdir/%name/plugins
+%_libdir/%name/plugins/libpersonal-details*
+%_libdir/%name/plugins/personal-details.xml
 %{_datadir}/applications/%name.desktop
 %{_datadir}/giggle/glade/main-window.glade
 %{_iconsdir}/hicolor/*/apps/*
