@@ -10,7 +10,7 @@ Release:	%release
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://developer.imendio.com/projects/giggle
-Source0:	http://ftp.imendio.com/pub/imendio/giggle/src/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk+2-devel perl-XML-Parser gettext
 BuildRequires:	libgnomeprint-devel libglade2.0-devel libgtksourceview-2.0-devel libxml2-devel
