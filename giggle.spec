@@ -1,6 +1,6 @@
 %define	name	giggle
 %define	version	0.4.91
-%define	release	%mkrel 1
+%define	release	%mkrel 2
 %define	summary	Gtk frontend for git
 
 %define libname %mklibname %name %version
@@ -14,6 +14,7 @@ License:	GPLv2+
 Group:		Development/Other
 URL:		http://developer.imendio.com/projects/giggle
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
+Patch0:		giggle-0.4.91-linkage.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk+2-devel
 BuildRequires:	libglade2.0-devel 
@@ -41,6 +42,7 @@ Giggle is a graphical frontend for the git directory tracker.
 Summary: %summary
 Group: Development/C
 Provides: lib%name-devel = %version-%release
+Provides: %name-devel = %version-%release
 Requires: %libname = %version-%release
 
 %description -n %develname
@@ -48,11 +50,10 @@ Giggle is a graphical frontend for the git directory tracker.
 
 
 %prep
-%setup -q 
+%setup -q
+%patch0 -p0
 
 %build
-#gw it doesn't build otherwise
-%define _disable_ld_no_undefined 1
 %configure2_5x
 %make
 
