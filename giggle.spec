@@ -1,7 +1,10 @@
 %define	name	giggle
-%define	version	0.4.90
+%define	version	0.4.91
 %define	release	%mkrel 1
 %define	summary	Gtk frontend for git
+
+%define libname %mklibname %name %version
+%define develname %mklibname -d %name
 
 Summary:	%summary
 Name:		%name
@@ -22,9 +25,27 @@ BuildRequires:	git-core
 #gw libtool dep (GConf2?)
 BuildRequires:	dbus-glib-devel
 Requires:	git-core
+Requires: %libname >= %version-%release
 
 %description
 Giggle is a graphical frontend for the git directory tracker.
+
+%package -n %libname
+Summary: %summary
+Group: System/Libraries
+
+%description -n %libname
+Giggle is a graphical frontend for the git directory tracker.
+
+%package -n %develname
+Summary: %summary
+Group: Development/C
+Provides: lib%name-devel = %version-%release
+Requires: %libname = %version-%release
+
+%description -n %develname
+Giggle is a graphical frontend for the git directory tracker.
+
 
 %prep
 %setup -q 
@@ -39,9 +60,6 @@ Giggle is a graphical frontend for the git directory tracker.
 rm -rf ${RPM_BUILD_ROOT}
 %makeinstall_std
 %find_lang %name
-
-# remove devel files
-rm -f %buildroot%_libdir/*.la %buildroot%_libdir/{libgiggle.so,libgiggle-git.so}
 
 %if %mdkversion < 200900
 %post
@@ -62,7 +80,6 @@ rm -rf %buildroot
 %defattr(-,root,root)
 %doc AUTHORS README NEWS ChangeLog
 %{_bindir}/*
-%{_libdir}/*.so
 %dir %_libdir/%name
 %dir %_libdir/%name/plugins
 %_libdir/%name/plugins/libpersonal-details*
@@ -70,3 +87,15 @@ rm -rf %buildroot
 %{_datadir}/applications/%name.desktop
 %{_datadir}/giggle/glade/main-window.glade
 %{_iconsdir}/hicolor/*/apps/*
+
+%files -n %libname
+%defattr(-,root,root)
+%_libdir/lib*-%version.so
+
+%files -n %develname
+%defattr(-,root,root)
+%_libdir/*.la
+%_libdir/libgiggle.so
+%_libdir/libgiggle-git.so
+%_includedir/%name
+
