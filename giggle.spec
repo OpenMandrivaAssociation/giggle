@@ -12,7 +12,7 @@ Version:	%version
 Release:	%release
 License:	GPLv2+
 Group:		Development/Other
-URL:		http://developer.imendio.com/projects/giggle
+URL:		http://live.gnome.org/giggle
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 Patch0:		giggle-0.4.91-linkage.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
