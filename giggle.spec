@@ -1,6 +1,6 @@
 %define	name	giggle
 %define	version	0.4.91
-%define	release	%mkrel 2
+%define	release	%mkrel 3
 %define	summary	Gtk frontend for git
 
 %define libname %mklibname %name %version
