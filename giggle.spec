@@ -1,9 +1,10 @@
 %define	name	giggle
-%define	version	0.4.91
-%define	release	%mkrel 3
+%define	version	0.4.95
+%define	release	%mkrel 1
 %define	summary	Gtk frontend for git
 
-%define libname %mklibname %name %version
+%define major 0
+%define libname %mklibname %name %major
 %define develname %mklibname -d %name
 
 Summary:	%summary
@@ -14,10 +15,9 @@ License:	GPLv2+
 Group:		Development/Other
 URL:		http://live.gnome.org/giggle
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-Patch0:		giggle-0.4.91-linkage.patch
+Patch0:		giggle-0.4.95-linkage.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk+2-devel
-BuildRequires:	libglade2.0-devel 
 BuildRequires:	libgtksourceview-2.0-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	evolution-data-server-devel
@@ -51,7 +51,8 @@ Giggle is a graphical frontend for the git directory tracker.
 
 %prep
 %setup -q
-%patch0 -p0
+%patch0 -p1
+autoreconf
 
 %build
 %configure2_5x
@@ -83,15 +84,20 @@ rm -rf %buildroot
 %{_bindir}/*
 %dir %_libdir/%name
 %dir %_libdir/%name/plugins
-%_libdir/%name/plugins/libpersonal-details*
-%_libdir/%name/plugins/personal-details.xml
+%dir %_libdir/%name/plugins/%version
+%_libdir/%name/plugins/%version/libpersonal-details*
+%_libdir/%name/plugins/%version/libterminal-view*
+%_libdir/%name/plugins/%version/*.xml
+%dir %_datadir/%name/
+%dir %_datadir/%name/glade/
+%_datadir/%name/glade/main-window.ui
 %{_datadir}/applications/%name.desktop
-%{_datadir}/giggle/glade/main-window.glade
 %{_iconsdir}/hicolor/*/apps/*
 
 %files -n %libname
 %defattr(-,root,root)
-%_libdir/lib*-%version.so
+%_libdir/libgiggle.so.%{major}*
+%_libdir/libgiggle-git.so.%{major}*
 
 %files -n %develname
 %defattr(-,root,root)
