@@ -25,6 +25,7 @@ BuildRequires:	intltool
 BuildRequires:	git-core
 #gw libtool dep (GConf2?)
 BuildRequires:	dbus-glib-devel
+BuildRequires:  gnome-common
 Requires:	git-core
 Requires: %libname >= %version-%release
 
