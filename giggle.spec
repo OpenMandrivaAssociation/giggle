@@ -21,6 +21,7 @@ BuildRequires:	gtk+2-devel
 BuildRequires:	libgtksourceview-2.0-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	evolution-data-server-devel
+BuildRequires:	vte-devel
 BuildRequires:	intltool
 BuildRequires:	git-core
 #gw libtool dep (GConf2?)
