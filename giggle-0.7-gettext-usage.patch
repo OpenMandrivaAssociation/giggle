@@ -1,0 +1,12 @@
+--- giggle-0.7/configure.ac~	2013-11-02 14:56:34.582478998 +0800
++++ giggle-0.7/configure.ac	2013-11-02 14:56:55.783057226 +0800
+@@ -154,9 +154,6 @@
+ dnl  ------------------
+ IT_PROG_INTLTOOL([0.41.0])
+ 
+-AM_GNU_GETTEXT_VERSION([0.18.1])
+-AM_GNU_GETTEXT([external])
+-
+ AC_SUBST([GETTEXT_PACKAGE], [giggle])
+ AC_DEFINE([GETTEXT_PACKAGE], [PACKAGE_TARNAME],[Define to the gettext package name])
+ 
