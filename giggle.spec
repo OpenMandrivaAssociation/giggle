@@ -6,7 +6,7 @@
 Summary:	Gtk frontend for git
 Name:		giggle
 Version:	0.7
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Development/Other
 Url:		https://wiki.gnome.org/giggle
