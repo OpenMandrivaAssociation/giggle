@@ -93,7 +93,7 @@ Giggle is a graphical frontend for the git directory tracker.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 NOCONFIGURE=yes gnome-autogen.sh
