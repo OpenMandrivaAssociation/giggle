@@ -13,6 +13,11 @@ Url:		https://wiki.gnome.org/giggle
 Source0:	https://download.gnome.org/sources/%name/%{name}-%{version}.tar.xz
 Patch0:		giggle-0.7-gtksourceview-3.8.patch
 Patch1:		giggle-0.7-gettext-usage.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	git-core
 BuildRequires:	gnome-common
 BuildRequires:	intltool >= 0.40.0
